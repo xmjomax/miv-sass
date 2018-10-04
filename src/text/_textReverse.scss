@@ -1,0 +1,10 @@
+@mixin text-reverse() {
+  /* Chrome, Safari */
+  -webkit-transform: rotateY(180deg);
+  /* Firefox */
+  -moz-transform: rotateY(180deg);
+  /* Opera */
+  -o-transform: rotateY(180deg);
+  /* Internet Explorer */
+  -ms-transform: rotateY(180deg);
+}

@@ -1,0 +1,42 @@
+$nav-hegiht: 50px;
+$nav-active-bottom-color: #1abd88;
+$nav-default-txt-size: 18px;
+$nav-active-txt-size: 24px;
+$nav-default-color: #666;
+$nav-active-color: #1abd88;
+
+// use
+//.aboutus__nav {
+//  @include horizontal-nav('aboutus__nav');
+//}
+
+//.aboutus__wrap
+//  .aboutus__nav
+//    a.aboutus__nav__item(href="#xzxx") 111
+//    a.active.aboutus__nav__item(href="history") 222
+//    a.aboutus__nav__item(href="") 333
+//    a.aboutus__nav__item(href="") 444
+@mixin horizontal-nav($item-class) {
+  width: 100%;
+  height: $nav-hegiht;
+  text-align: center;
+  border-bottom: 1px solid #d9d9d9;
+
+  .#{$item-class}__item {
+    padding: 0 10px;
+    line-height: 40px;
+    height: 100%;
+    display: inline-block;
+    border-bottom: 2px solid transparent;
+    color: $nav-default-color;
+    margin: 0 6%;
+    font-size: $nav-default-txt-size;
+
+    &.active {
+      color: $nav-active-color;
+      //font-size: $nav-active-txt-size;
+      border-bottom: 2px solid $nav-active-bottom-color;
+      font-size: 18px;
+    }
+  }
+}

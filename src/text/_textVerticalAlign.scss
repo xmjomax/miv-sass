@@ -1,0 +1,22 @@
+@mixin line-height($height) {
+	height: $height;
+	line-height: $height;
+	overflow: hidden;
+}
+
+@mixin text-vertical-table($subWrap, $content) {
+	display:table;
+	_position:relative;   
+  	overflow:hidden;
+
+	.#{$subWrap} {
+		vertical-align:middle;   
+  		display:table-cell;   
+  		_position:absolute;   
+  		_top:50%;   
+	}
+	.#{$content} {
+  		position:relative;   
+  		top:-50%;   
+	}
+}

@@ -1,0 +1,44 @@
+$breadcrumb-padding: 8px 16px !default;
+$breadcrumb-margin: 0 0 16px 0 !default;
+//** Breadcrumb background color
+$breadcrumb-bg:                 #f5f5f5 !default;
+//** Breadcrumb text color
+$breadcrumb-color:              #ccc !default;
+//** Text color of current page in the breadcrumb
+$breadcrumb-active-color:       #777 !default;
+//** Textual separator for between breadcrumb elements
+$breadcrumb-separator:          "/" !default;
+$border-radius-base:        4px !default;
+
+
+//ol.breadcrumb__list
+//span 当前位置&nbsp;:&nbsp;
+//li: a() 首页
+//        li: a() 服务品类
+//                li: a() 卫浴五金
+@mixin breadcrumb() {
+  padding: $breadcrumb-padding;
+  margin: $breadcrumb-margin;
+  list-style: none;
+  background-color: $breadcrumb-bg;
+  border-radius: $border-radius-base;
+
+  > li {
+    display: inline-block;
+    a {
+      color: $breadcrumb-color;
+    }
+
+    + li:before {
+      // [converter] Workaround for https://github.com/sass/libsass/issues/1115
+      $nbsp: "\00a0";
+      content: "#{$breadcrumb-separator}#{$nbsp}"; // Unicode space added since inline-block means non-collapsing white-space
+      padding: 0 5px;
+      color: $breadcrumb-color;
+    }
+  }
+
+  > .active {
+    color: $breadcrumb-active-color;
+  }
+}

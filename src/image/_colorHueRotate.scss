@@ -1,0 +1,5 @@
+@mixin color-rotate($val:90deg) {
+  -ms-filter: hue-rotate($val);
+  -webkit-filter: hue-rotate($val);
+  filter: hue-rotate($val);
+}

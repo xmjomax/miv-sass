@@ -1,0 +1,14 @@
+@mixin link-active($color, $active-color) {
+  color: $color;
+
+  &.active {
+    color: $active-color;
+  }
+}
+
+@mixin text-hover-decoration($val: underline) {
+
+  &:hover {
+    text-decoration: $val;
+  }
+}

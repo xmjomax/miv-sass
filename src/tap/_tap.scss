@@ -1,0 +1,5 @@
+
+// Is often used to ban mobiles after click the gray box
+@mixin tap-highlight($color: rgba(0,0,0,0)) {
+  -webkit-tap-highlight-color: $color;
+}

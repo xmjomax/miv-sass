@@ -1,0 +1,83 @@
+@import "./config";
+@import "./sprites";
+@import "./imageInvertColor";
+@import "./colorHueRotate";
+@import "./colorSaturate";
+@import "./background";
+@import "./gradient";
+@import "./imageGreyscale";
+@import "./backgroundCss3";
+
+
+
+//*  img
+// img-scaling
+@mixin img-scaling {
+ width:auto;
+ height:auto;
+ max-width:100%;
+ max-height:100%;
+}
+
+@mixin img-scaling-part {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: auto;
+  height: auto;
+  min-width: 100%;
+  min-height: 100%;
+  transform: translate(-50%, -50%)
+}
+
+
+
+//:example img-scaling-with-padding
+//.win__wrap {
+//  @include img-scaling-with-padding('win__box', 55%);
+//
+//  .win__box {
+//
+//    @include img-central('../images/coupon-bg.png', '../images/coupon-bg.png', 100%, 100%);
+//    -webkit-background-size: cover;
+//    background-size: cover;
+//
+//    .prize {
+//      background-repeat: no-repeat;
+//      background-position: center center;
+//      background-size: cover;
+//      width: 34%;
+//      height: 52%;
+//      position: absolute;
+//      left: 50%;
+//      top: 13%;
+//      margin-left: -17%;
+//    }
+//  }
+//}
+
+@mixin img-scaling-with-padding($imgElement:'img', $scale: 47%) {
+  width: 100%;
+  height: 0;
+  padding-bottom: $scale;
+  overflow: hidden;
+  position: relative;
+
+  .#{$imgElement} {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}
+
+// img middle (text-align:center)
+@mixin img-vertical-middle {
+  @include img-scaling;
+  vertical-align: middle;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}

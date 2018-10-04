@@ -1,0 +1,355 @@
+html {
+    font-family: $font-family-sans, $font-family-gothic, sans-serif;
+    font-size: percentage($ratio-minor-7th * 0.5);
+
+    @media #{ $media-medium } {
+        font-size: percentage($ratio-unison);
+    }
+
+    @media #{ $media-large } {
+        font-size: percentage($ratio-major-2nd);
+    }
+}
+
+body {
+    background-color: $color-background;
+    color: $color-text;
+    margin: auto;
+    max-width: 100vw / $ratio-major-2nd;
+    position: relative;
+    width: 40rem;
+}
+
+h1 {
+    @include vertical-rhythm(line-height, 9/6);
+    font-size: $font-size-xxlarge;
+    font-weight: normal;
+    margin: 0;
+
+    @media #{ $media-xsmall } {
+        font-size: $font-size-xxxlarge;
+    }
+
+    .mincho & {
+        font-family: $font-family-serif, $font-family-mincho, serif;
+    }
+}
+
+h2 {
+    @include vertical-rhythm(line-height, 8/6);
+    @include vertical-rhythm(margin-bottom, 1);
+    @include vertical-rhythm(margin-top, 3);
+    font-size: $font-size-xxlarge;
+    font-weight: normal;
+}
+
+h3 {
+    @include vertical-rhythm(line-height, 1);
+    @include vertical-rhythm(margin-bottom, 1);
+    @include vertical-rhythm(margin-top, 2);
+    font-size: $font-size-large;
+}
+
+h4 {
+    @include vertical-rhythm(line-height, 5/6);
+    @include vertical-rhythm(margin-top, 1);
+    @include vertical-rhythm(padding-bottom, 1/6);
+    font-size: $font-size-medium;
+    margin-bottom: 0;
+}
+
+h5 {
+    @include vertical-rhythm(line-height, 5/6);
+    @include vertical-rhythm(margin-top, 1);
+    @include vertical-rhythm(padding-bottom, 1/6);
+    font-size: $font-size-small;
+    margin-bottom: 0;
+}
+
+h6 {
+    @include vertical-rhythm(line-height, 4/6);
+    @include vertical-rhythm(margin-top, 1);
+    @include vertical-rhythm(padding-bottom, 1/6);
+    @include vertical-rhythm(padding-top, 1/6);
+    font-size: $font-size-xsmall;
+    margin-bottom: 0;
+}
+
+p,
+ol,
+ul,
+dl {
+    @include vertical-rhythm(line-height, 1);
+    @include vertical-rhythm(margin-bottom, 1);
+    @include vertical-rhythm(margin-top, 1);
+
+    li &,
+    dd & {
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+
+    h4 + &,
+    h5 + &,
+    h6 + & {
+        margin-top: 0;
+    }
+}
+
+hr {
+    @include vertical-rhythm(line-height, 1);
+    @include vertical-rhythm(margin-bottom, 1);
+    @include vertical-rhythm(margin-top, 1);
+    border: 0;
+    color: $color-text-secondary;
+    height: auto; // Override normalize.css
+    text-align: center;
+
+    &::after {
+        content: "*";
+    }
+}
+
+ol,
+ul {
+    padding-left: $indent-medium;
+}
+
+dt {
+    font-weight: bold;
+}
+
+dd {
+    margin-left: $indent-medium;
+}
+
+blockquote,
+pre,
+figure,
+table {
+    @include vertical-rhythm(margin-bottom, 2);
+    @include vertical-rhythm(margin-top, 2);
+    margin-left: $indent-small;
+    margin-right: $indent-small;
+
+    @media #{ $media-small } {
+        margin-left: $indent-medium;
+        margin-right: $indent-medium;
+    }
+}
+
+blockquote {
+    p,
+    footer {
+        @include vertical-rhythm(line-height, 5/6);
+        font-size: $font-size-small;
+    }
+
+    p {
+        margin-bottom: 0;
+        margin-top: 0;
+
+        & + p {
+            text-indent: $indent-medium;
+        }
+    }
+
+    footer {
+        margin-left: $indent-small;
+        text-align: right;
+
+        @media #{ $media-xsmall } {
+            margin-left: $indent-medium;
+        }
+    }
+}
+
+pre,
+code,
+samp,
+kbd {
+    font-family: $font-family-mono, monospace;
+}
+
+pre {
+    @include vertical-rhythm(line-height, 4/6);
+    font-size: $font-size-xsmall;
+    white-space: pre-wrap;
+}
+
+code,
+samp,
+kbd {
+    opacity: $ratio-minor-7th * 0.5;
+
+    pre &,
+    code &,
+    samp &,
+    kbd & {
+        opacity: 1;
+    }
+}
+
+figcaption,
+caption {
+    @include vertical-rhythm(line-height, 4/6);
+    @include vertical-rhythm(padding-top, 4/6);
+    color: $color-text-secondary;
+    font-size: $font-size-xsmall;
+
+    a {
+        border-bottom: 0;
+        color: $color-link-secondary;
+        text-decoration: underline;
+
+        &:hover {
+            color: $color-text;
+        }
+    }
+}
+
+table {
+    border-collapse: collapse;
+}
+
+caption {
+    caption-side: bottom;
+    text-align: left;
+}
+
+th,
+td {
+    @include vertical-rhythm(line-height, 4/6);
+    @include vertical-rhythm(padding-bottom, 1/6);
+    @include vertical-rhythm(padding-top, 1/6);
+    font-size: $font-size-xsmall;
+    padding-left: 1rem;
+    vertical-align: baseline;
+
+    &:first-child {
+        padding-left: 0;
+    }
+
+    tr:first-child & {
+        @include vertical-rhythm(padding-top, 4/6);
+    }
+
+    tr:last-child & {
+        @include vertical-rhythm(padding-bottom, 4/6);
+    }
+
+    thead tr:first-child &,
+    tfoot tr:first-child & {
+        @include vertical-rhythm(padding-top, 2/6);
+    }
+
+    thead tr:last-child &,
+    tfoot tr:last-child & {
+        @include vertical-rhythm(padding-bottom, 2/6);
+    }
+
+    thead tr:first-child &,
+    tbody tr:first-child & {
+        box-shadow: inset 0 1px $color-border;
+    }
+
+    tfoot tr:last-child &,
+    tbody tr:last-child & {
+        box-shadow: 0 1px $color-border;
+    }
+}
+
+th {
+    thead & {
+        vertical-align: bottom;
+    }
+
+    tfoot &,
+    tbody & {
+        text-align: left;
+    }
+}
+
+a {
+    color: $color-accent;
+
+    &[href^="#fn-"] {
+        font-family: $font-family-mono, monospace;
+        font-weight: bold;
+        padding-left: 0.25em;
+        padding-right: 0.25em;
+        text-decoration: none;
+    }
+
+    &[href^="#fnref-"] {
+        text-decoration: none;
+    }
+
+    &:not([href]) {
+        color: inherit;
+        cursor: default;
+    }
+
+    &:hover {
+        color: inherit;
+    }
+}
+
+b,
+cite,
+code,
+dfn,
+em,
+i,
+kbd,
+samp,
+small,
+strong,
+var {
+    line-height: normal;
+}
+
+cite,
+dfn,
+em,
+i {
+    &:lang(ja) {
+        font-style: normal;
+    }
+}
+
+strong {
+    border-bottom: double;
+}
+
+mark {
+    background-color: $color-background-marked;
+}
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+    vertical-align: middle;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+svg {
+    fill: currentColor;
+}
+
+::-moz-selection {
+    background-color: hsla(210, 100%, 87.5%, 1);
+    text-shadow: none;
+}
+
+::selection {
+    background-color: hsla(210, 100%, 87.5%, 1);
+    text-shadow: none;
+}

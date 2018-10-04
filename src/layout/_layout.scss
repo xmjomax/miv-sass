@@ -1,0 +1,36 @@
+@import "./config";
+@import "./selection";
+
+//.canvas__central {
+//  width: $central_scale_by_canvas;
+//  @include central-block;
+//}
+
+@mixin container-fixed($gutter: 0) {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left:  floor(($gutter / 2));
+  padding-right: ceil(($gutter / 2));
+  @include clearfix;
+}
+
+// Creates a wrapper for a series of columns
+@mixin make-row($gutter: 0) {
+  margin-left:  ceil(($gutter / 2));
+  margin-right: floor(($gutter / 2));
+  @include clearfix;
+}
+
+@mixin col-horizontal($col-width, $gutter: 0) {
+  display: inline-block;
+  width: $col-width;
+  margin-left:  ceil(($gutter / 2));
+  margin-right: floor(($gutter / 2));
+
+  &:first-of-type {
+    margin-left: 0;
+  }
+  &:last-of-type {
+    margin-right: 0;
+  }
+}

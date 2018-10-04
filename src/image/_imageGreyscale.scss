@@ -1,0 +1,7 @@
+@mixin img-greyscale($val:100%) {
+  -webkit-filter: grayscale($val);
+  -moz-filter: grayscale($val);
+  -ms-filter: grayscale($val);
+  -o-filter: grayscale($val);
+  filter: grayscale($val);
+}

@@ -1,0 +1,174 @@
+
+@mixin display-box {
+	display: -webkit-box; // OLD - iOS 6-, Safari 3.1-6
+	display: -moz-box; // OLD - Firefox 19- (buggy but mostly works)
+	display: -ms-flexbox; // TWEENER - IE 10
+}
+
+@mixin display-flex {
+  display: -webkit-box; /* Chrome 4+, Safari 3.1, iOS Safari 3.2+ */
+  display: -moz-box; /* Firefox 17- */
+  display: -webkit-flex; /* Chrome 21+, Safari 6.1+, iOS Safari 7+, Opera 15/16 */
+  display: -moz-flex; /* Firefox 18+ */
+  display: -ms-flexbox; /* IE 10 */
+  display: flex; /* Chrome 29+, Firefox 22+, IE 11+, Opera 12.1/17/18, Android 4.4+ */
+}
+
+@mixin flexbox() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+// @include flex(1 200px);
+@mixin flex($values) {
+  -webkit-box-flex: $values;
+  -moz-box-flex:  $values;
+  -webkit-flex:  $values;
+  -ms-flex:  $values;
+  flex:  $values;
+}
+
+// order
+// 可以为负数
+// @include order(2);
+@mixin order($val) {
+  -webkit-box-ordinal-group: $val;  
+  -moz-box-ordinal-group: $val;     
+  -ms-flex-order: $val;     
+  -webkit-order: $val;  
+  order: $val;
+}
+
+// box-orient 属性
+// horizontal ： 伸缩项目从左到右水平排列
+// vertical  ： 伸缩项目从上到下垂直排列
+// inline-axis ： 伸缩项目沿着内联轴排列显示
+// block-axis ： 伸缩项目沿着块轴排列显示
+
+@mixin box-orient($orient:horizontal) {
+	-webkit-box-orient: $orient;
+    box-orient: $orient;
+}
+
+// box-direction 属性
+// normal  : 正常顺序，默认值
+// reverse : 反序
+
+
+@mixin box-direction ($direction: normal) {
+    -webkit-box-direction: $direction;
+    box-direction: $direction;
+}
+// row: 横向
+// row-reverse 反向横向
+// colum 纵向
+// column-reverse 反向纵向
+// flex-direction: row | row-reverse | column | column-reverse;
+@mixin flex-direction ($direction: row) {
+    -webkit-flex-direction: $direction;
+    flex-direction: $direction;
+}
+
+// 设置子元素占用倍数, 2： 2倍
+// flex-grow: <number>; /* default 0 */
+@mixin flex-grow ($number: 0) {
+  flex-grow: $number; /* default 0 */
+  -webkit-flex-grow: $number;
+}
+
+// 和 glex-grow 相反 2: 1/2
+@mixin flex-shrink($number: 0) {
+  flex-shrink: $number;
+  -webkit-flex-shrink: $number;
+}
+
+// 定义默认占用剩余空间 可以使用 20% 2rem 等
+@mixin flex-basis($value: 0) {
+  flex-basis: $value;
+  -webkit-flex-basis: $value;
+}
+
+// 设置横排内容对齐方式
+// justify-content: flex-start | flex-end | center | space-between | space-around;
+@mixin justify-content($axis: flex-start) {
+  justify-content: $axis;
+  -webkit-justify-content: $axis;
+}
+
+// 换行样式 默认不换行
+// flex-wrap: nowrap | wrap | wrap-reverse;
+@mixin flex-wrap($wrap: nowrap) {
+  flex-wrap: $wrap;
+  -webkit-flex-wrap: $wrap;
+}
+
+// align-self 属性定义flex子项单独在侧轴（纵轴）方向上的对齐方式
+// align-self: auto | flex-start | flex-end | center | baseline | stretch;
+@mixin align-self($axis) {
+  align-self: $axis;
+  -webkit-align-self: $axis;
+}
+
+// align-items: flex-start | flex-end | center | baseline | stretch;
+@mixin align-items($axis) {
+  align-items: $axis;
+  -webkit-align-items: $axis;
+}
+
+//  align-content: flex-start | flex-end | center | space-between | space-around | stretch;
+@mixin align-content($axis) {
+  align-content: $axis;
+  -webkit-align-content: $axis;
+}
+
+// box-pack属性
+// start   :  伸缩项目以起始点靠齐
+// end   :  伸缩项目以结束点靠齐
+// center :  伸缩项目以中心点靠齐
+// justify  :  伸缩项目平局分布
+
+
+@mixin box-pack($pack: center) {
+  -webkit-box-pack: $pack;  
+  -ms-flex-pack: $pack;
+  -webkit-justify-content: $pack;
+  justify-content: $pack;
+  -webkit-box-align: $pack;
+  -ms-flex-align: $pack;
+  -webkit-align-items: $pack;
+  align-items: $pack;
+}
+
+
+// box-align属性
+// start  ： 伸缩项目以顶部为基准，清理下部额外空间
+// end    ： 伸缩项目以底部为基准，清理上部额外空间
+// center ： 伸缩项目以中部为基准，平均清理上下部额外空间
+// baseline ： 伸缩项目以基线为基准，清理额外的空间
+// stretch  ： 伸缩项目填充整个容器，默认值
+
+@mixin box-align($align: start) {
+	-webkit-box-align: $align;
+    box-align: $align;
+}
+
+// box-flex属性
+// box-flex 属性可以使用浮点数分配伸缩项目的比例。此属性是给容器内的项目设置的，它们会基于父容器的宽度来分配它们所占的比例：
+// 从数字 1开始...
+
+@mixin box-flex($n) {
+	-webkit-box-flex: $n;
+    box-flex: $n;
+}
+
+// box-ordinal-group 属性
+// box-ordinal-group 属性可以设置伸缩项目的显示位置。
+
+
+@mixin box-ordinal-group($n) {
+    -webkit-box-ordinal-group: $n;
+    box-ordinal-group: $n;
+}

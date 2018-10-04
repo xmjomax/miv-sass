@@ -1,0 +1,12 @@
+@mixin test-rotate($rotateX:0deg, $rotateY:0deg, $rotateZ:30deg) {
+  /* Chrome, Safari */
+  -webkit-transform: rotateX($rotateX) rotateY($rotateY) rotateZ($rotateZ);
+  /* Firefox */
+  -moz-transform: rotateX($rotateX) rotateY($rotateY) rotateZ($rotateZ);
+  /* Opera */
+  -o-transform: rotateX($rotateX) rotateY($rotateY) rotateZ($rotateZ);
+  /* Internet Explorer */
+  -ms-transform: rotateX($rotateX) rotateY($rotateY) rotateZ($rotateZ);
+  /* Standard Syntax */
+  transform: rotateX($rotateX) rotateY($rotateY) rotateZ($rotateZ);
+}

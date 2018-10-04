@@ -1,0 +1,25 @@
+@mixin color-gradient ($startColor: #eee, $endColor: #fff) {
+  background-color: $startColor;
+  background: -webkit-gradient(linear, left top, left bottom, from($startColor), to($endColor));
+  background: -webkit-linear-gradient(top, $startColor, $endColor);
+  background: -moz-linear-gradient(top, $startColor, $endColor);
+  background: -ms-linear-gradient(top, $startColor, $endColor);
+  background: -o-linear-gradient(top, $startColor, $endColor);
+}
+
+@mixin color-linear-gradient($startColor: #eee, $endColor: #fff, $direction: top) {
+  background-color: $startColor;
+  background: -webkit-gradient(linear, $direction, from($startColor), to($endColor));
+  background: -webkit-linear-gradient($direction, $startColor, $endColor);
+  background: -moz-linear-gradient($direction, $startColor, $endColor);
+  background: -ms-linear-gradient($direction, $startColor, $endColor);
+  background: -o-linear-gradient($direction, $startColor, $endColor);
+}
+
+// $type [circle | ellipse]
+// $extent-keyword [closest-corner | closest-side | farthest-corner | farthest-side]
+// example: @include img-radial-gradient(ellipse, farthest-corner at 45px 45px, #00ffff 0%, rgba(0, 0, 255, 0) 50%, #0000ff 95%)
+// output:  background-image: radial-gradient(ellipse farthest-corner at 45px 45px, #00ffff 0%, rgba(0, 0, 255, 0) 50%, #0000ff 95%);
+@mixin img-radial-gradient($type:ellipse, $extent-keyword: farthest-corner at 45px 45px, $colors...) {
+  background-image: radial-gradient($type #{$extent-keyword}, $colors);
+}

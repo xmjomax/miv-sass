@@ -1,0 +1,41 @@
+// 生成多边行
+// 说明: 在调用定义好的polygon()，而且这个函数具有两个参数$points,这个参数指的是正多边形的边数；$startPoint指的是开始点，其默认值为0:
+// 示例:
+// ===== scss ====
+// $numPoints: 10;
+// @for $i from 1 through $numPoints {
+//     $num: $i + 2;
+//     .clippaths .polygon:nth-of-type(#{$i}) {
+//         clip-path: polygon($num);
+//     }
+// }
+// ====== html ====
+// <div class='clippaths'>
+//   <div class='polygon'></div>
+//   <div class='polygon'></div>
+//   <div class='polygon'></div>
+//   <div class='polygon'></div>
+//   <div class='polygon'></div>
+//   <div class='polygon'></div>
+//   <div class='polygon'></div>
+//   <div class='polygon'></div>
+//   <div class='polygon'></div>
+//   <div class='polygon'></div>
+// </div>
+
+@function polygon($points, $startPoint: 0) {
+    $angle: (360deg / $points);
+    $coords: '';
+    @for $point from $startPoint through ($points + $startPoint - 1) {
+        $pointAngle: $angle * $point;
+        $x: 50% + (percentage(sin($pointAngle)) / 2);
+        $y: 50% - (percentage(cos($pointAngle)) / 2);
+        $coords: $coords + $x + ' ' + $y;
+        @if $point != $points + $startPoint - 1 {
+            $coords: $coords + ', ';
+        }
+        $point: $point + 1;
+    }
+    $polygon: 'polygon(' + $coords + ')';
+    @return unquote($polygon);
+}

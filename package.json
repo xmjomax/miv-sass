@@ -1,0 +1,23 @@
+{
+  "name": "miv-sass",
+  "version": "0.0.4",
+  "description": "front styles component",
+  "main": "index.scss",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "sass",
+    "scss",
+    "miv-sass"
+  ],
+  "author": {
+    "name": "xmjomax",
+    "email": "529918222@qq.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xmjomax/miv-sass.git"
+  },
+  "license": "ISC"
+}

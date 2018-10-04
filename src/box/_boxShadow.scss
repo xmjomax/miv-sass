@@ -1,0 +1,11 @@
+
+// example: @include box-shadow(0 0 2px #f00)
+// example: @include box-shadow(inset 0 0 2px #f00)
+@mixin box-shadow($val: inset 5px 5px 15px #1abc9c) {
+  /* Chrome, Safari */
+  -webkit-box-shadow: $val;
+  /* Firefox */
+  -moz-box-shadow: $val;
+  /* Standard syntax */
+  box-shadow: $val;
+}

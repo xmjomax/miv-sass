@@ -1,0 +1,9 @@
+$black-alpha: rgba(0, 0, 0, 0.3);
+$black-alpha-2: rgba(0, 0, 0, 0.4);
+
+body {
+  background-color: $black-alpha;
+  background-image: linear-gradient(45deg, $black-alpha 24%, $black-alpha-2 25%, $black-alpha-2 26%, $black-alpha 26%, $black-alpha 74%, $black-alpha-2 75%, $black-alpha-2 76%, $black-alpha 76%), 
+  linear-gradient(-45deg, $black-alpha 24%, $black-alpha-2 25%, $black-alpha-2 26%, $black-alpha 26%, $black-alpha 74%, $black-alpha-2 75%, $black-alpha-2 76%, $black-alpha 76%);
+  background-size: 100px 100px;
+}

@@ -1,0 +1,4 @@
+@mixin img-invert-color($val:8) {
+  -webkit-filter: invert($val);
+  filter: invert($val);
+}

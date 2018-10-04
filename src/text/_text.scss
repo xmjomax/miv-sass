@@ -1,0 +1,68 @@
+@import "./config";
+@import "./textReverse";
+@import "./textRotate";
+@import "./lineHeight";
+@import "./textVerticalAlign";
+
+@mixin text-hide($height: null) {
+  overflow: hidden;
+  text-indent: -500%;
+  white-space: nowrap;
+
+  @if $height {
+    @warn "The `hide-text` mixin has changed and no longer requires a height. The height argument will no longer be accepted in v5.0.0";
+  }
+}
+
+// text-overflow: ellipsis / clip
+@mixin text-overflow($width: 100%, $arg: ellipsis) {
+  display: inline-block;
+  max-width: $width;
+  overflow: hidden;
+  -ms-text-overflow: $arg;
+  text-overflow: $arg;
+  white-space: nowrap;
+  word-wrap: normal;
+}
+
+@mixin word-wrap($wrap: break-word) {
+  overflow-wrap: $wrap;
+  word-wrap: $wrap;
+
+  @if $wrap == break-word {
+    word-break: break-all;
+    white-space: pre-wrap; /* css-3 */
+    white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+    white-space: -pre-wrap; /* Opera 4-6 */
+    white-space: -o-pre-wrap; /* Opera 7 */
+    word-wrap: $wrap; /* Internet Explorer 5.5+ */
+  } @else {
+    word-break: $wrap;
+  }
+}
+
+@mixin text-shadow-white-with-blue {
+  text-shadow: 1px 1px 2px black, 0 0 1em blue, 0 0 0.2em blue;
+  color: white;
+  font: 1.5em Georgia, "Bitstream Charter", "URW Bookman L", "Century Schoolbook L", serif;
+}
+
+@mixin text-center($width, $height) {
+  width: $width;
+  height:$height;
+  line-height: $height;
+  display: inline-block;
+  text-align: center;
+}
+
+@function make-long-shadow($color) {
+  $val: 0px 0px $color;
+  @for $i from 1 through 200 {
+    $val: #{$val}, #{$i}px #{$i}px #{$color};
+  }
+  @return $val;
+}
+
+@mixin text-long-shadow($color) {
+  text-shadow: make-long-shadow($color);
+}

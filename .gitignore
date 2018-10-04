@@ -1,2 +1,9 @@
+.gitignore
+.npmignore
+.DS_Store
+.idea/
+.vscode/
+node_modules/
+npm-debug.log
 .sass-cache/
 *.css.map

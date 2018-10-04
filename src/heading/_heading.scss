@@ -1,0 +1,26 @@
+$heading-height: 30px !default;
+$heading-font-size: 24px !default;
+$heading-font-weight: 400 !default;
+$heading-color: #ee5fff !default;
+@mixin heading {
+  height: $heading-height;
+  line-height: $heading-height;
+
+  h3 {
+    font-size: $heading-font-size;
+    color: $heading-color;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    font-weight: $heading-font-weight;
+
+    &:before {
+      content: '';
+      width: 6px;
+      height: $heading-height;
+      background-color: $heading-color;
+      @include pos-abs(0, 0, 0, -46px);
+      display: block;
+    }
+  }
+}

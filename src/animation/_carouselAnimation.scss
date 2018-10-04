@@ -1,0 +1,67 @@
+
+// 示例
+// @include carousel-animation(
+//   $name: 'carousel-contact',
+//   $frames: 3,
+//   $static: 20%
+// );
+
+
+// $n: 5;
+// $x: 17.5%;
+// $y: (100% - $n * $x) / ($n - 1);
+
+// @keyframes carousel {
+//   @for $i from 0 to $n {
+//     $current-frame: ($i * $x) + ($i * $y);
+//     $next-frame: (($i + 1) * $x) + ($i + $y);
+
+//     #{$current-frame, $next-frame} {
+//       transform: translate3d($i * -100% / $frames, 0, 0);
+//     }
+
+//     $halfway-frame: $i * ($x / 1%) + ($i - 1) * $y + ($y / 2);
+
+//     @if $i > 0 {
+//       #{$halfway-frame} {
+//         filter: blur(2px);
+//       }
+//     }
+//   }
+// }
+
+// =========== 编译出来的 css ===========
+// @keyframes carousel {
+//   0%, 17.5% {
+//     transform: translateX(0%);
+//     filter: blur(0);
+//   }
+//   19.0625% {
+//     filter: blur(2px);
+//   }
+//   20.625%, 38.125% {
+//     transform: translateX(-20%);
+//     filter: blur(0);
+//   }
+//   39.6875% {
+//     filter: blur(2px);
+//   }
+//   41.25%, 58.75% {
+//     transform: translateX(-40%);
+//     filter: blur(0);
+//   }
+//   60.3125% {
+//     filter: blur(2px);
+//   }
+//   61.875%, 79.375% {
+//     transform: translateX(-60%);
+//     filter: blur(0);
+//   }
+//   80.9375% {
+//     filter: blur(2px);
+//   }
+//   82.5%, 100% {
+//     transform: translateX(-80%);
+//     filter: blur(0);
+//   }
+// }

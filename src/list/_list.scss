@@ -1,0 +1,35 @@
+@import "./breadcumb";
+@import "./horizontalNav";
+@import "./pagination";
+@import "./switchable";
+
+@mixin list-group__item__variant($state, $background, $color) {
+  .list-group__item__#{$state} {
+    color: $color;
+    background-color: $background;
+
+    // [converter] extracted a&, button& to a.list-group__item__#{$state}, button.list-group__item__#{$state}
+  }
+
+  a.list-group__item__#{$state},
+  button.list-group__item__#{$state} {
+    color: $color;
+
+    .list-group__item__heading {
+      color: inherit;
+    }
+
+    &:hover,
+    &:focus {
+      color: $color;
+      background-color: darken($background, 5%);
+    }
+    &.active,
+    &.active:hover,
+    &.active:focus {
+      color: #fff;
+      background-color: $color;
+      border-color: $color;
+    }
+  }
+}

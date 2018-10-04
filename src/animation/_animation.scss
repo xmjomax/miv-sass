@@ -1,0 +1,17 @@
+@import "./scale";
+@import "./skew";
+@import "./transition";
+@import "./carouselAnimation";
+
+/// Make a context based selector a little more friendly
+/// @param {String} $context
+//.foo {
+//  @include when-inside('.active') {
+//    animation: fadeIn 0.3s 1s forwards;
+//  }
+//}
+@mixin when-inside($classes) {
+  #{$classes} & {
+    @content;
+  }
+}

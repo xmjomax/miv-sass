@@ -1,0 +1,8 @@
+@mixin line-height($height) {
+  line-height:  $height;
+  padding-top: $height / 4 \9;
+  padding-bottom: $height / 4 \9;
+
+  *line-height: $height;
+  _line-height: $height;
+}
